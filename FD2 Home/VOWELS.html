@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const glas = ["а", "у", "е", "ё", "ы", "о", "э", "я", "и"];
+
+      function vowels(str) {
+        let s = null;
+        for (var i = 0; i < str.length; i++) {
+          if (glas.includes(str[i])) {
+            s += 1;
+          } else {
+            s += 0;
+          }
+        }
+        return s;
+        console.log(s);
+      }
+      const str1 = prompt("введите слово").toLowerCase();
+
+      alert(`в строке ${vowels(str1)} глассных букв`);
+    </script>
+  </body>
+</html>

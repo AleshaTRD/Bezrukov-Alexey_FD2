@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>hi</h1>
+    <script>
+      const familia = prompt("введите фамилию");
+      const name = prompt("введите имя");
+      const otch = prompt("введите отчество");
+      do {
+        const agestr = prompt("введите возраст");
+        const age = parseInt(agestr);
+      } while (isNaN(age));
+
+      const pol = confirm("ваш пол мужской?");
+      const ageDay = age * 365;
+      const ageFive = age + 5;
+      let gender;
+      if (pol === true) {
+        gender = "Мужской";
+      } else {
+        gender = "Женский";
+      }
+      let pens;
+      if (pol === true) {
+        if (age >= 63) {
+          pens = "да";
+        } else {
+          pens = "нет";
+        }
+      }
+      if (pol === false) {
+        if (age >= 58) {
+          pens = "да";
+        } else {
+          pens = "нет";
+        }
+      }
+
+      const fio = familia + " " + name + " " + otch;
+      alert(`
+        ваше фио ${fio}
+        ваш возрост в годах: ${age}
+        ваш возрост в днях: ${ageDay}
+        через 5 лет вам будет: ${ageFive}
+        ваш пол ${gender}
+        вы на пенсии: ${pens}
+        `);
+    </script>
+  </body>
+</html>

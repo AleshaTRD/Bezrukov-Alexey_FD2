@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="-" onclick="counterMinus()" />
+    <input type="button" value="+" onclick="counterPlus()" /> <br />
+    <input type="button" value="10" onclick="counterChange(9, -9)" />
+    <input type="button" value="20" onclick="counterChange(19, -19)" />
+    <input type="button" value="30" onclick="counterChange(29, -29)" />
+    <input type="button" value="40" onclick="counterChange(39, -39)" />
+    <input type="button" value="50" onclick="counterChange(49, -49)" />
+
+    <script>
+      let counter = null;
+      let granM = null;
+      let granP = null;
+      function counterChange(a, b) {
+        counter = null;
+        granM = b;
+        granP = a;
+      }
+
+      function counterMinus() {
+        if (counter >= granM) {
+          counter--;
+          console.log(counter);
+        } else {
+          return;
+        }
+      }
+
+      function counterPlus() {
+        if (counter <= granP) {
+          counter++;
+          console.log(counter);
+        } else {
+          return;
+        }
+      }
+    </script>
+  </body>
+</html>
