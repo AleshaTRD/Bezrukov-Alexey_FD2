@@ -14,23 +14,21 @@
     пользователю соответствующий году век."
 
     <script>
-      let str = prompt("введите строку!");
-      delProbel(str);
-      function delProbel(str) {
-        if (str.startsWith(" ")) {
-          while (str.startsWith(" ")) {
-            str = str.slice(1);
-          }
-        }
+      let god = prompt("введите год!");
 
-        if (str.endsWith(" ")) {
-          while (str.endsWith(" ")) {
-            str = str.slice(0, str.length - 1);
-          }
-        }
-        str = "$" + str + "$";
-        console.log(str);
+      function godVek(god) {
+        console.log(Math.trunc(god / 100));
       }
+      godVek(god);
+
+      //   if (str.endsWith(" ")) {
+      //     while (str.endsWith(" ")) {
+      //       str = str.slice(0, str.length - 1);
+      //     }
+      //   }
+      //   str = "$" + str + "$";
+      //   console.log(str);
+      // }
 
       // const array2 = [5, 7, [4, [2], 8, [1, 3], 2], [9, []], 1, 8];
 
