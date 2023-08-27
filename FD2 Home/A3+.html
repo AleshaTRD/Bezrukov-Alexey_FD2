@@ -7,22 +7,39 @@
   </head>
   <body>
     <script>
-      const str = "ёлка, подъезд";
+      let str = prompt("введите строку!");
 
-      function change(char) {
-        const dict = {
-          ё: "е",
-          ъ: "ь",
-          " ": "",
-          ",": "",
-        };
+      function polindromCheck(pol) {
+        pol = pol
+          .toLowerCase()
+          .split("ё")
+          .join("е")
+          .split(" ")
+          .join("")
+          .split("!")
+          .join("")
+          .split(",")
+          .join("")
+          .split("?")
+          .join("")
+          .split("ъ")
+          .join("ь");
 
-        if (dict[char]) {
-          return dict[char];
+        if (pol.charAt(0) === pol.charAt(pol.length - 1))
+          while (
+            pol.charAt(0) === pol.charAt(pol.length - 1) &&
+            pol.length > 1
+          ) {
+            pol = pol.slice(1, pol.length - 1);
+          }
+        console.log(pol);
+        if (pol === "" || pol.length === 1) {
+          alert("Ура! Это палиндром!");
+        } else {
+          alert("Это не палиндром!");
         }
-
-        return char;
       }
+      polindromCheck(str);
     </script>
   </body>
 </html>
