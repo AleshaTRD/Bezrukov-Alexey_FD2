@@ -9,13 +9,36 @@
   <body>
     <h1>hi</h1>
     <script>
-      const familia = prompt("введите фамилию");
-      const name = prompt("введите имя");
-      const otch = prompt("введите отчество");
-      do {
-        const agestr = prompt("введите возраст");
-        const age = parseInt(agestr);
-      } while (isNaN(age));
+      let familia = prompt("введите фамилию");
+      while (familia === "") {
+        familia = prompt("внимательно введите фамилию!");
+      }
+      while (familia.length < 3 || familia.length > 30) {
+        familia = prompt(
+          "количество символов должно быть в пределах от 3 до 30!"
+        );
+      }
+
+      let name = prompt("введите имя");
+      while (name === "") {
+        name = prompt("внимательно введите имя!");
+      }
+      while (name.length < 3 || name.length > 30) {
+        name = prompt("количество символов должно быть в пределах от 3 до 30!");
+      }
+
+      let otch = prompt("введите отчество");
+      while (otch === "") {
+        otch = prompt("внимательно введите имя!");
+      }
+      while (otch.length < 3 || otch.length > 30) {
+        otch = prompt("количество символов должно быть в пределах от 3 до 30!");
+      }
+
+      let age = prompt("введите возраст");
+      while (isNaN(age) || age === "") {
+        age = prompt("введите правильный возраст");
+      }
 
       const pol = confirm("ваш пол мужской?");
       const ageDay = age * 365;
@@ -45,8 +68,8 @@
       const fio = familia + " " + name + " " + otch;
       alert(`
         ваше фио ${fio}
-        ваш возрост в годах: ${age}
-        ваш возрост в днях: ${ageDay}
+        ваш возраст в годах: ${age}
+        ваш возраст в днях: ${ageDay}
         через 5 лет вам будет: ${ageFive}
         ваш пол ${gender}
         вы на пенсии: ${pens}
