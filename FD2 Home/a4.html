@@ -19,16 +19,20 @@
       //     }
       //     return s;
       //   }
+      let x = "апрерпа";
+      let y = "апреggggрпа";
 
       function tS(pol) {
-        if (pol.charAt(0) === pol.charAt(pol.length - 1)) {
-          pol = pol.slice(1, pol.length - 1);
-          tS(pol);
+        if (pol.charAt(0) === pol.charAt(pol.length - 1) && pol.length > 1) {
+          return (pol = tS(pol.slice(1, pol.length - 1)));
+        }
+        console.log(pol);
+        if (pol === "" || pol.length === 1) {
+          console.log("Ура! Это палиндром!");
         } else {
-          return pol;
+          console.log("Это не палиндром!");
         }
       }
-      tS("апрерпа");
 
       //     while (pol.charAt(0) === pol.charAt(pol.length - 1) && pol.length > 1) {
       //       pol = pol.slice(1, pol.length - 1);
