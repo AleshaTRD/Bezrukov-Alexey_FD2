@@ -12,18 +12,22 @@
       function polindromCheck(pol) {
         pol = pol
           .toLowerCase()
-          .split("ё")
-          .join("е")
-          .split(" ")
-          .join("")
-          .split("!")
-          .join("")
-          .split(",")
-          .join("")
-          .split("?")
-          .join("")
-          .split("ъ")
-          .join("ь");
+          .split("")
+          .map((el) => {
+            const dict = {
+              ё: "е",
+              ъ: "ь",
+              " ": "",
+              ",": "",
+            };
+
+            if (dict[el]) {
+              return dict[el];
+            }
+
+            return el;
+          })
+          .join("");
 
         if (pol.charAt(0) === pol.charAt(pol.length - 1))
           while (
