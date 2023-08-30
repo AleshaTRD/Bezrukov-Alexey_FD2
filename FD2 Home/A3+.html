@@ -7,22 +7,58 @@
   </head>
   <body>
     <script>
-      const str = "ёлка, подъезд";
+      const str = "ёл к,аъ";
+      // function x(str) {
+      //   const dict = {
+      //     ё: "е",
+      //     ъ: "ь",
+      //     " ": "",
+      //     ",": "",
+      //   };
 
-      function change(char) {
-        const dict = {
-          ё: "е",
-          ъ: "ь",
-          " ": "",
-          ",": "",
-        };
+      //   for (let i = 0; i < str.length; i++) {
+      //     if (dict[i]) {
+      //       return dict[i];
+      //     }
 
-        if (dict[char]) {
-          return dict[char];
-        }
+      //     return [i];
+      //   }
+      // }
 
-        return char;
-      }
+      // y = x(str);
+
+      x = str
+        .split("")
+        .map((el) => {
+          const dict = {
+            ё: "е",
+            ъ: "ь",
+            " ": "",
+            ",": "",
+          };
+
+          if (dict[el]) {
+            return dict[el];
+          }
+
+          return el;
+        })
+        .join("");
+
+      // function change(char) {
+      //   const dict = {
+      //     ё: "е",
+      //     ъ: "ь",
+      //     " ": "",
+      //     ",": "",
+      //   };
+
+      //   if (dict[char]) {
+      //     return dict[char];
+      //   }
+
+      //   return char;
+      // }
     </script>
   </body>
 </html>

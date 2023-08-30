@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+    </div>
+
+    <div class="papa">
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+    </div>
+    <script>
+      const el = document.getElementById("app");
+      const arr = [1, 2, 3, 4, 5];
+      let res = "";
+      arr.forEach((x) => {
+        res += `<span> ${x * 2}</span>`;
+      });
+      el.innerHTML = res;
+      el.style.cssText =
+        "font-size: 20, font-weight: 700, background-color: red";
+      const el2 = document.getElementsByClassName("son");
+    </script>
+  </body>
+</html>
