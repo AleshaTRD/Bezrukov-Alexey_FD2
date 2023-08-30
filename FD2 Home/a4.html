@@ -11,6 +11,23 @@
       let y = "апреggggрпа";
 
       function tS(pol) {
+        pol = pol
+          .toLowerCase()
+          .split("")
+          .map((el) => {
+            const dict = {
+              ё: "е",
+              ъ: "ь",
+              " ": "",
+              ",": "",
+            };
+            if (dict[el]) {
+              return dict[el];
+            }
+            return el;
+          })
+          .join("");
+
         if (pol.charAt(0) === pol.charAt(pol.length - 1) && pol.length > 1) {
           return (pol = tS(pol.slice(1, pol.length - 1)));
         }
