@@ -8,42 +8,44 @@
   <body>
     <script>
       const str = "ёл к,аъ";
-      // function x(str) {
-      //   const dict = {
-      //     ё: "е",
-      //     ъ: "ь",
-      //     " ": "",
-      //     ",": "",
-      //   };
+      function x(str) {
+        const dict = {
+          ё: "е",
+          ъ: "ь",
+          " ": "",
+          ",": "",
+        };
 
-      //   for (let i = 0; i < str.length; i++) {
-      //     if (dict[i]) {
-      //       return dict[i];
-      //     }
-
-      //     return [i];
-      //   }
-      // }
-
-      // y = x(str);
-
-      x = str
-        .split("")
-        .map((el) => {
-          const dict = {
-            ё: "е",
-            ъ: "ь",
-            " ": "",
-            ",": "",
-          };
-
-          if (dict[el]) {
-            return dict[el];
+        for (let i = 0; i < str.length; i++) {
+          if (dict[i]) {
+            return dict[i];
           }
 
-          return el;
-        })
-        .join("");
+          return [i];
+          console.log(i);
+        }
+        return str;
+      }
+
+      y = x(str);
+
+      // x = str
+      //   .split("")
+      //   .map((el) => {
+      //     const dict = {
+      //       ё: "е",
+      //       ъ: "ь",
+      //       " ": "",
+      //       ",": "",
+      //     };
+
+      //     if (dict[el]) {
+      //       return dict[el];
+      //     }
+
+      //     return el;
+      //   })
+      //   .join("");
 
       // function change(char) {
       //   const dict = {
