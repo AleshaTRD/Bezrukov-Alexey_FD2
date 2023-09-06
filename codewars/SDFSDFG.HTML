@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=script, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = [1, 2, 1];
+      let a1 = [1];
+      let a2 = [1, 2];
+      function distinct(a) {
+        let a2 = Array.from(new Set(a));
+        return [a2];
+      }
+      distinct(a);
+
+      // let a = [1, 2, 1, 3];
+      // let a2 = new Set(a); //обьект Set - уникальная коллекция
+      // let a3 = Array.from(a2);
+      // console.log(a3);
+      // function distinct(a) {
+      //   return [
+      //     a.map((el) => {
+      //       if (a.includes(el)) {
+      //         delete a;
+      //       }
+      //     }),
+      //   ];
+      //   console.log[a];
+      // }
+
+      // distinct(a);
+
+      // const glas = ["а", "у", "е", "ё", "ы", "о", "э", "я", "и"];
+      //         let s = null;
+      //         for (var i = 0; i < str.length; i++) {
+      //           if (glas.includes(str[i])) {
+      //             s += 1;
+      //           } else {
+      //             s += 0;
+      //           }
+      //         }
+      //         return s;
+      //         console.log(s);
+      //       }
+    </script>
+  </body>
+</html>

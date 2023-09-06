@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=scr, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    assert.sameOrderedMembers(findMultiples(11, 54), [11, 22, 33, 44])
+    <script>
+      function findMultiples(integer, limit) {
+        let arr = [];
+
+        for (let i = integer; i <= limit; i = i + integer) {
+          arr.push(i);
+        }
+        return arr;
+      }
+
+      //     } else {
+      //       arr = [];
+      //     }
+      //     return arr;
+      //   }
+    </script>
+  </body>
+</html>

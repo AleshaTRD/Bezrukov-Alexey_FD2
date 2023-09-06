@@ -2,7 +2,7 @@ const items = [
   {
     card_img: "img/CatalogFor-Pages/doroga_1.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_3.png",
-    card_name: "Беговая дорожка Sole TT8 AC",
+    card_name: "Sole TT8 AC",
     idT: 1,
     brand: "Sole",
     point: "профессиональные",
@@ -11,12 +11,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "152 х 56",
     maxWeight: "180",
-    prise: "209 900 ₽",
+    prise: 100,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_2.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_2.png",
-    card_name: "Беговая дорожка Bowflex BXT226",
+    card_name: "Bowflex BXT226",
     idT: 2,
     brand: "Bowflex",
     point: "полупрофи",
@@ -25,12 +25,12 @@ const items = [
     constrType: "складные",
     runBelt: "152 x 51",
     maxWeight: "170",
-    prise: "259 900 ₽",
+    prise: 150,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_3.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_3.png",
-    card_name: "Беговая дорожка Cardiopower PRO CT350 NEW",
+    card_name: "Cardiopower PRO CT350 NEW",
     idT: 3,
     brand: "Cardiopower PRO",
     point: "профессиональные",
@@ -39,12 +39,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "165 x 57",
     maxWeight: "180",
-    prise: "265 900 ₽",
+    prise: 200,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_4.webp",
     nalich_img: "img/CatalogFor-Pages/Malo_1.png",
-    card_name: "Беговая дорожка CardioPower PRO CT200",
+    card_name: "CardioPower PRO CT200",
     idT: 4,
     brand: "Cardiopower PRO",
     point: "профессиональные",
@@ -53,12 +53,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "155 x 56",
     maxWeight: "150",
-    prise: "289 900 ₽",
+    prise: 250,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_5.webp",
     nalich_img: "img/CatalogFor-Pages/Malo_1.png",
-    card_name: "Беговая дорожка CardioPower TR150",
+    card_name: "CardioPower TR150",
     idT: 5,
     brand: "Cardiopower PRO",
     point: "реабилитационная",
@@ -67,12 +67,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "145 х 50",
     maxWeight: "130",
-    prise: "293 000 ₽",
+    prise: 300,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_6.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_3.png",
-    card_name: "Беговая дорожка Bowflex BXT326",
+    card_name: "Bowflex BXT326",
     idT: 6,
     brand: "Bowflex",
     point: "полупрофи",
@@ -81,7 +81,7 @@ const items = [
     constrType: "складные",
     runBelt: "152 x 55.8",
     maxWeight: "181",
-    prise: "294 900 ₽",
+    prise: 350,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_7.webp",
@@ -95,12 +95,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "155 x 58.5",
     maxWeight: "180",
-    prise: "299 900 ₽",
+    prise: 400,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_8.webp",
     nalich_img: "img/CatalogFor-Pages/Net_0.png",
-    card_name: "Беговая дорожка Smith ST600",
+    card_name: "Smith ST600",
     idT: 8,
     brand: "SMITH",
     point: "профессиональные",
@@ -109,12 +109,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "152 x 57",
     maxWeight: "170",
-    prise: "355 500 ₽",
+    prise: 450,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_9.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_2.png",
-    card_name: "Беговая дорожка CardioPower PRO TG300",
+    card_name: "CardioPower PRO TG300",
     idT: 9,
     brand: "Cardiopower PRO",
     point: "профессиональные",
@@ -123,12 +123,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "160 x 48",
     maxWeight: "150",
-    prise: "359 900 ₽",
+    prise: 500,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_10.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_3.png",
-    card_name: "Беговая дорожка CardioPower PRO CT320",
+    card_name: "CardioPower PRO CT320",
     idT: 10,
     brand: "Cardiopower PRO",
     point: "профессиональные",
@@ -137,12 +137,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "155 x 58.5",
     maxWeight: "180",
-    prise: "399 900 ₽",
+    prise: 550,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_11.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_2.png",
-    card_name: "Беговая дорожка CardioPower PRO CT550",
+    card_name: "CardioPower PRO CT550",
     idT: 11,
     brand: "Cardiopower PRO",
     point: "профессиональные",
@@ -151,12 +151,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "163 x 60",
     maxWeight: "180",
-    prise: "489 900 ₽",
+    prise: 600,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_12.webp",
     nalich_img: "img/CatalogFor-Pages/Malo_1.png",
-    card_name: "Беговая дорожка CardioPower PRO CT550",
+    card_name: "CardioPower PRO CT550",
     idT: 12,
     brand: "Cardiopower PRO",
     point: "профи (24/7)",
@@ -165,12 +165,12 @@ const items = [
     constrType: "нескладные",
     runBelt: "156 х 56",
     maxWeight: "181",
-    prise: "655 900 ₽",
+    prise: 700,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_13.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_2.png",
-    card_name: "Беговая дорожка TRUE TC400 Envision16",
+    card_name: "TRUE TC400 Envision16",
     idT: 13,
     brand: "TRUE",
     point: "профессиональные",
@@ -180,12 +180,12 @@ const items = [
     runBelt: "152 х 56",
     xProgram: "35",
     maxWeight: "181",
-    prise: "1 197 100 ₽",
+    prise: 800,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_14.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_3.png",
-    card_name: "Беговая дорожка с увеличенным наклоном TRUE TI1000",
+    card_name: "TRUE TI1000",
     idT: 14,
     brand: "TRUE",
     point: "профессиональные",
@@ -195,12 +195,12 @@ const items = [
     runBelt: "152 х 56",
     xProgram: "10",
     maxWeight: "171",
-    prise: "1 312 200 ₽",
+    prise: 900,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_15.webp",
     nalich_img: "img/CatalogFor-Pages/Vnalich_2.png",
-    card_name: "Беговая дорожка TRUE TC900 Envision16",
+    card_name: "TRUE TC900 Envision16",
     idT: 15,
     brand: "TRUE",
     point: "профи (24/7)",
@@ -210,12 +210,12 @@ const items = [
     runBelt: "157 х 58",
     xProgram: "35",
     maxWeight: "190",
-    prise: "2 515 900 ₽",
+    prise: 1000,
   },
   {
     card_img: "img/CatalogFor-Pages/doroga_16.webp",
     nalich_img: "img/CatalogFor-Pages/Net_0.png",
-    card_name: "Беговая дорожка Gym80 Endurance80 T80.1",
+    card_name: "Gym80 Endurance80 T80.1",
     idT: 16,
     brand: "Gym80",
     point: "профи (24/7)",
@@ -225,25 +225,50 @@ const items = [
     runBelt: "162 x 52",
     xProgram: "40",
     maxWeight: "205",
-    prise: "3 115 900 ₽",
+    prise: 1500,
   },
 ];
 
-// const items = [{ cardName: "qwe", brand: "qwe", power: "qwe" }];
+const app = document.getElementById("app");
 
 const add = () => {
   const card_name = document.querySelector("[name='card_name']").value;
   const brand = document.querySelector("[name='brand']").value;
   const power = document.querySelector("[name='power']").value;
+  const prise = parseInt(document.querySelector("[name='prise']").value);
 
   items.push({
     card_name,
     brand,
     power,
+    prise,
   });
+  render(items);
 };
 
-const app = document.getElementById("app");
+function filter(arr) {
+  const range = document.querySelector("[name='range']").value;
+  console.log(range);
+  let fItems = items.filter(function (item) {
+    return item.prise > range;
+  });
+  console.log(fItems);
+  render(fItems);
+}
+
+function filter2(arr) {
+  const pricemin = parseInt(document.querySelector("[name='pricemin']").value);
+  const pricemax = parseInt(document.querySelector("[name='pricemax']").value);
+  console.log(pricemin, pricemax);
+  if (pricemin > pricemax) {
+    alert("правильно заполните фильтр!");
+  }
+  let fItems = items.filter(
+    (item) => pricemin <= item.prise && item.prise <= pricemax
+  );
+  console.log(fItems);
+  render(fItems);
+}
 
 function render(items) {
   let result = "";
@@ -281,7 +306,7 @@ function render(items) {
      <span class="znachenie">${item.maxWeight}</span>
 
      <div class="price_sell">
-        <span class="catalog_price">${item.prise}</span>
+        <div><span class="catalog_price">${item.prise}</span> <span class="catalog_p">$</span></div>
         <button><img src="img/Promo/korzina.png" alt="" /> Купить</button>
      </div>
   </div>

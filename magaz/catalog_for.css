@@ -87,7 +87,13 @@ body {
 }
 .catalog_price {
   font-weight: 700;
-  font-size: 17px;
+  font-size: 20px;
   line-height: 23px;
-  color: #1a1a25;
+  color: #e32a38;
+}
+.catalog_p {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #e32a38;
 }

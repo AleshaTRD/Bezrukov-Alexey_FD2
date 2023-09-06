@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=script, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function squares(x, n) {
+        let arr = [x];
+        if (n > 0) {
+          for (let i = 1; i < n; i++) {
+            x = x * x;
+            arr.push(x);
+          }
+        } else {
+          arr = [];
+        }
+        return arr;
+      }
+      squares(3, 3);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>CatalogFor/</title>
+    <link rel="stylesheet" href="catalog_for.css" />
+  </head>
+  <body>
+    <input type="text" name="card_name" placeholder="Имя" /> <br />
+    <input type="text" name="brand" placeholder="Брэнд" /> <br />
+    <input type="text" name="power" placeholder="Мощность" /> <br />
+    <input type="text" name="prise" placeholder="Цена" /> <br />
+    <input type="button" name="power" value="отправить" onclick="add()" />
+    <input type="button" name="power" value="рэндэр" onclick="render(items)" />
+
+    <hr />
+    <input type="range" min="100" max="1500" step="10" name="range" />
+    <input
+      type="button"
+      name="power"
+      value="отфильтровать"
+      onclick="filter(items)"
+    />
+    <br />
+    <hr />
+
+    <input type="text" name="pricemin" value="100" /> <br />
+    <input type="text" name="pricemax" value="1500" /> <br />
+    <input
+      type="button"
+      name="power"
+      value="отфильтровать"
+      onclick="filter2(items)"
+    />
+    <hr />
+
+    <div id="app"></div>
+
+    <script></script>
+    <script src="catalogFor.js"></script>
+  </body>
+</html>

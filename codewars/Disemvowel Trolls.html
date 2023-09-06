@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    
+    sript, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function disemvowel(str) {
+        const glas = ["e", "u", "i", "o", "a", "E", "U", "I", "O", "A"];
+        const res = [];
+        let arr = str.split("");
+        for (let i = 0; i < arr.length; i++) {
+          if (glas.includes(arr[i])) {
+          } else {
+            res.push(arr[i]);
+          }
+        }
+
+        return res.join("");
+      }
+    </script>
+  </body>
+</html>
