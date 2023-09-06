@@ -5,17 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drink Storage</title>
-    <style></style>
+    <style>
+      input {
+        font-size: 20px;
+      }
+    </style>
   </head>
+
   <body>
-    <input type="button" id="addDrink" value="Ввод информации о напитке" />
-    <input type="button" id="infoDrink" value="Получить информацию о напитке" />
     <input
+      style="background-color: rgb(180, 255, 182)"
+      type="button"
+      id="addDrink"
+      value="Ввод информации о напитке"
+    />
+    <input
+      style="background-color: rgb(249, 250, 158)"
+      type="button"
+      id="infoDrink"
+      value="Получить информацию о напитке"
+    />
+    <input
+      style="background-color: rgb(252, 166, 144)"
       type="button"
       id="deleteDrink"
       value="Удаление информации о напитке"
     />
-    <input type="button" id="listDrink" value="Перечень всех напитков" />
+    <input
+      style="background-color: rgb(133, 182, 246)"
+      type="button"
+      id="listDrink"
+      value="Перечень всех напитков"
+    />
     <script>
       class HashStorageClass {
         publicHash = {};
