@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drink Storage</title>
+    <style></style>
+  </head>
+  <body>
+    <input type="button" id="addDrink" value="Ввод информации о напитке" />
+    <input type="button" id="infoDrink" value="Получить информацию о напитке" />
+    <input
+      type="button"
+      id="deleteDrink"
+      value="Удаление информации о напитке"
+    />
+    <input type="button" id="listDrink" value="Перечень всех напитков" />
+    <script>
+      class HashStorageClass {
+        publicHash = {};
+
+        addValue = (key, value) => {
+          this.publicHash[key] = value;
+        };
+        getValue = (key) => {
+          return this.publicHash[key];
+        };
+        deleteValue = (key) => {
+          if (key in this.publicHash) {
+            delete this.publicHash[key];
+            return true;
+          } else {
+            return false;
+          }
+        };
+        getKeys = () => {
+          const arrKeys = Object.keys(this.publicHash);
+          return arrKeys;
+        };
+      }
+      //////////////////////////////////////////////////////////////
+      const drinkStorage = new HashStorageClass();
+      drinkStorage.addValue("пина колада", {
+        alcohol: "Да",
+        recipe:
+          "50 мл светлого рома + 30 мл кокосовых сливок + 50 мл ананасового сока",
+      });
+      drinkStorage.addValue("маргарита", {
+        alcohol: "Да",
+        recipe:
+          "50 мл текилы + 20 мл «Куантро» + 15 мл свежевыжатого сока лайма",
+      });
+      drinkStorage.addValue("мохито", {
+        alcohol: "Да",
+        recipe:
+          "45 мл светлого рома + 6 веток перечной мяты + 20 мл сока лайма + 2 чайные ложки белого сахара",
+      });
+
+      ///////////////////////////////////////////////////////////////////////
+
+      const addDrink = () => {
+        const drinkName = prompt("Введите название напитка!");
+        const drinkAlko = confirm(
+          "Если напиток алкогольный - нажмите 'ОК', если безалкогольный - нажмите 'Отмена'"
+        );
+
+        let alko = "";
+        if (drinkAlko == true) {
+          alko = "Да";
+        } else {
+          alko = "Нет";
+        }
+        const drinkRecipe = prompt("Введите рецепт напитка!");
+        const drinkInfo = {};
+
+        drinkInfo.alcohol = alko;
+        drinkInfo.recipe = drinkRecipe;
+        drinkStorage.addValue(drinkName, drinkInfo);
+        alert("Напиток добавлен в хранилище!");
+      };
+
+      const infoDrink = () => {
+        const drinkName = prompt("Введите название напитка!");
+        const drinkInfo = drinkStorage.getValue(drinkName);
+        console.log(drinkInfo);
+        if (drinkInfo) {
+          alert(
+            `
+             напиток: ${drinkName}
+             алкогольный: ${drinkInfo.alcohol}
+             рецепт приготовления: ${drinkInfo.recipe}`
+          );
+        } else {
+          alert("Напиток отсуствует в хранилище!");
+        }
+      };
+      const deleteDrink = () => {
+        const drinkName = prompt("Введите название напитка!");
+        const drinkDelete = drinkStorage.deleteValue(drinkName);
+        if (drinkDelete) {
+          alert("Напиток был удален из хранилища!");
+        } else {
+          alert("Такой напиток отсуствует в хранилище!");
+        }
+      };
+      const listDrink = () => {
+        alert(drinkStorage.getKeys());
+      };
+
+      ///////////////////////////////////////////////////////////////////////////
+
+      const btn1 = document.getElementById("addDrink");
+      btn1.addEventListener("click", addDrink);
+      const btn2 = document.getElementById("infoDrink");
+      btn2.addEventListener("click", infoDrink);
+      const btn3 = document.getElementById("deleteDrink");
+      btn3.addEventListener("click", deleteDrink);
+      const btn4 = document.getElementById("listDrink");
+      btn4.addEventListener("click", listDrink);
+    </script>
+  </body>
+</html>
