@@ -256,7 +256,7 @@ function filter(arr) {
   render(fItems);
 }
 
-function filter2(arr) {
+function filter2(items) {
   const pricemin = parseInt(document.querySelector("[name='pricemin']").value);
   const pricemax = parseInt(document.querySelector("[name='pricemax']").value);
   console.log(pricemin, pricemax);

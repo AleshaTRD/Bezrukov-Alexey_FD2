@@ -26,37 +26,36 @@
       const item = document.getElementById("item");
       const basket = document.getElementById("basket");
 
-      item.addEventListener("dragstart", () => {
-        console.log("dragstart");
-      });
+      // item.addEventListener("dragstart", () => {
+      //   console.log("dragstart");
+      // });
 
-      item.addEventListener("drag", () => {
-        console.log("drag");
-      });
+      // item.addEventListener("drag", () => {
+      //   console.log("drag");
+      // });
 
-      item.addEventListener("dragend", () => {
-        console.log("dragend");
-      });
+      // item.addEventListener("dragend", () => {
+      //   console.log("dragend");
+      // });
 
-      basket.addEventListener("dragenter", () => {
-        console.log("dragenter");
-      });
+      // basket.addEventListener("dragenter", () => {
+      //   console.log("dragenter");
+      // });
 
       basket.addEventListener("dragover", (event) => {
         event.preventDefault();
         console.log("dragover");
       });
 
-      basket.addEventListener("dragleave", () => {
-        console.log("dragleave");
-      });
+      // basket.addEventListener("dragleave", () => {
+      //   console.log("dragleave");
+      // });
 
       const el = item.cloneNode();
 
       basket.addEventListener("drop", () => {
         basket.style.backgroundColor = "green";
-        basket.innerHTML =
-          '<div id="basket style="background-color: green"><span>товар в корзине!</span></div>';
+        basket.innerHTML = "<div><span>товар в корзине!</span></div>";
 
         basket.appendChild(el);
       });
