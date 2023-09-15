@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=script, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function f(z) {
+        if (z > 1) {
+          return function (x) {
+            return x * 2;
+          };
+        }
+      }
+      let preres = f(5);
+      let res = preres(4);
+      console.log(res);
+    </script>
+  </body>
+</html>

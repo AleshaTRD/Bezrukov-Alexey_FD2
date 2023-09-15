@@ -7,11 +7,10 @@
   </head>
   <body>
     <script>
-      const str = prompt("введите строку!");
-      polindromRecursion(str);
+      let str = prompt("введите строку!");
 
-      function polindromRecursion(pol) {
-        pol = pol
+      function polindromCheck(string) {
+        let pol = string
           .toLowerCase()
           .split("")
           .map((el) => {
@@ -32,14 +31,17 @@
             if (el in dict) {
               return dict[el];
             }
-            console.log(el);
             return el;
           })
           .join("");
 
-        if (pol.charAt(0) === pol.charAt(pol.length - 1) && pol.length > 1) {
-          return (pol = polindromRecursion(pol.slice(1, pol.length - 1)));
-        }
+        if (pol.charAt(0) === pol.charAt(pol.length - 1))
+          while (
+            pol.charAt(0) === pol.charAt(pol.length - 1) &&
+            pol.length > 1
+          ) {
+            pol = pol.slice(1, pol.length - 1);
+          }
         console.log(pol);
         if (pol === "" || pol.length === 1) {
           alert("Ура! Это палиндром!");
@@ -47,6 +49,7 @@
           alert("Это не палиндром!");
         }
       }
+      polindromCheck(str);
     </script>
   </body>
 </html>

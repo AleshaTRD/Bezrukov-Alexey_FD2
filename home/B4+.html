@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>b4+</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      const app = document.getElementById("app");
+
+      function buildWrapper(tag) {
+        return function (text) {
+          let reText = text
+            .split("")
+            .map((el) => {
+              const dict = {
+                "<": "&lt;",
+                ">": "&gt;",
+                "'": "&apos;",
+                '"': "&quot;",
+                "&": "&amp;",
+              };
+              if (el in dict) {
+                return dict[el];
+              }
+              return el;
+            })
+            .join("");
+          return `<${tag}>${reText}</${tag}>`;
+        };
+      }
+      const wrapH1 = buildWrapper("h1");
+      const wrapP = buildWrapper("p");
+      console.log(wrapH1("СТИХИ"));
+      console.log(wrapP("Однажды в студёную зимнюю пору"));
+      console.log(wrapP("<Вкусные M&M's>"));
+
+      const test1 = wrapH1("СТИХИ");
+      const test2 = wrapP("Однажды в студёную зимнюю пору");
+      const test3 = wrapP("<Вкусные M&M's>");
+
+      res = test1 + test2 + test3;
+      console.log(res);
+      app.innerHTML = res;
+    </script>
+  </body>
+</html>
