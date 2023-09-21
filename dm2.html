@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=script, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const formDef1 = [
+        { label: "Название сайта:", kind: "longtext", name: "sitename" },
+        { label: "URL сайта:", kind: "longtext", name: "siteurl" },
+        { label: "Посетителей в сутки:", kind: "number", name: "visitors" },
+        { label: "E-mail для связи:", kind: "shorttext", name: "email" },
+        {
+          label: "Рубрика каталога:",
+          kind: "combo",
+          name: "division",
+          variants: [
+            { text: "здоровье", value: 1 },
+            { text: "домашний уют", value: 2 },
+            { text: "бытовая техника", value: 3 },
+          ],
+        },
+        {
+          label: "Размещение:",
+          kind: "radio",
+          name: "payment",
+          variants: [
+            { text: "бесплатное", value: 1 },
+            { text: "платное", value: 2 },
+            { text: "VIP", value: 3 },
+          ],
+        },
+        { label: "Разрешить отзывы:", kind: "check", name: "votes" },
+        { label: "Описание сайта:", kind: "memo", name: "description" },
+        { caption: "Опубликовать", kind: "submit" },
+      ];
+      const formDef2 = [
+        { label: "Фамилия:", kind: "longtext", name: "lastname" },
+        { label: "Имя:", kind: "longtext", name: "firstname" },
+        { label: "Отчество:", kind: "longtext", name: "secondname" },
+        { label: "Возраст:", kind: "number", name: "age" },
+        { caption: "Зарегистрироваться", kind: "submit" },
+      ];
+
+      function formBuilder(arrElem) {
+        const tagDiv = document.getElementById("app");
+        const tagForm = document.createElement("form");
+        const tagHr = document.createElement("hr");
+        let tagLabel;
+        let tagBr;
+        let tagInput;
+        let tagTextarea;
+        let tagOption;
+        let tagSelect;
+        let tagButton;
+        let node;
+        tagDiv.appendChild(tagHr);
+        tagDiv.appendChild(tagForm);
+        tagForm.setAttribute("action", "http://fe.it-academy.by/TestForm.php");
+        tagForm.setAttribute("method", "post");
+        for (let obj of arrElem) {
+          let { caption = 0, label = 0, kind, name = 0, variants = 0 } = obj;
+          let type = "";
+          switch (kind) {
+            case "combo":
+              type = "select";
+              tagLabel = document.createElement("label");
+              tagForm.appendChild(tagLabel);
+              node = document.createTextNode(label);
+              tagLabel.appendChild(node);
+              tagSelect = document.createElement("select");
+              tagForm.appendChild(tagSelect);
+              tagSelect.setAttribute("name", name);
+              for (let objVar of variants) {
+                let { text, value } = objVar;
+                tagOption = document.createElement("option");
+                tagSelect.appendChild(tagOption);
+                tagOption.setAttribute("value", value);
+                node = document.createTextNode(text);
+                tagOption.appendChild(node);
+              }
+              tagBr = document.createElement("br");
+              tagForm.appendChild(tagBr);
+              break;
+
+            case "radio":
+              type = "radio";
+              tagLabel = document.createElement("label");
+              tagForm.appendChild(tagLabel);
+              node = document.createTextNode(label);
+              tagLabel.appendChild(node);
+              for (let objVar of variants) {
+                let { text, value } = objVar;
+                tagInput = document.createElement("input");
+                tagForm.appendChild(tagInput);
+                tagLabel = document.createElement("label");
+                tagForm.appendChild(tagLabel);
+
+                tagInput.setAttribute("type", type);
+                tagInput.setAttribute("name", name);
+                tagInput.setAttribute("value", value);
+                node = document.createTextNode(text);
+                tagLabel.appendChild(node);
+              }
+              tagBr = document.createElement("br");
+              tagForm.appendChild(tagBr);
+              break;
+
+            case "check":
+              type = "checkbox";
+              tagLabel = document.createElement("label");
+              tagInput = document.createElement("input");
+              tagBr = document.createElement("br");
+              tagForm.appendChild(tagLabel);
+              tagForm.appendChild(tagInput);
+              tagForm.appendChild(tagBr);
+              node = document.createTextNode(label);
+              tagLabel.appendChild(node);
+              tagInput.setAttribute("type", type);
+              tagInput.setAttribute("name", name);
+              break;
+
+            case "memo":
+              type = "textarea";
+              tagLabel = document.createElement("label");
+              tagTextarea = document.createElement("textarea");
+              tagBr = document.createElement("br");
+              tagForm.appendChild(tagLabel);
+              tagForm.appendChild(tagBr);
+              tagBr = document.createElement("br");
+              tagForm.appendChild(tagTextarea);
+              tagForm.appendChild(tagBr);
+              node = document.createTextNode(label);
+              tagLabel.appendChild(node);
+              tagTextarea.setAttribute("name", name);
+              tagTextarea.setAttribute("cols", 30);
+              tagTextarea.setAttribute("rows", 10);
+              break;
+
+            case "number":
+              type = "number";
+              tagLabel = document.createElement("label");
+              tagInput = document.createElement("input");
+              tagBr = document.createElement("br");
+              tagForm.appendChild(tagLabel);
+              tagForm.appendChild(tagInput);
+              tagForm.appendChild(tagBr);
+              node = document.createTextNode(label);
+              tagLabel.appendChild(node);
+              tagInput.setAttribute("type", type);
+              tagInput.setAttribute("name", name);
+              break;
+
+            case "submit":
+              type = "submit";
+              tagButton = document.createElement("button");
+              tagForm.appendChild(tagButton);
+              node = document.createTextNode(caption);
+              tagButton.appendChild(node);
+              tagButton.setAttribute("type", type);
+              break;
+
+            default:
+              type = "text";
+              tagLabel = document.createElement("label");
+              tagInput = document.createElement("input");
+              tagBr = document.createElement("br");
+              tagForm.appendChild(tagLabel);
+              tagForm.appendChild(tagInput);
+              tagForm.appendChild(tagBr);
+              node = document.createTextNode(label);
+              tagLabel.appendChild(node);
+              tagInput.setAttribute("type", type);
+              tagInput.setAttribute("name", name);
+              break;
+          }
+        }
+      }
+      formBuilder(formDef1);
+      formBuilder(formDef2);
+    </script>
+  </body>
+</html>

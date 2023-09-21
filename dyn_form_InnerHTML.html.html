@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const app = document.getElementById("app");
+      const formDef1 = [
+        { label: "Название сайта:", kind: "longtext", name: "sitename" },
+        { label: "URL сайта:", kind: "longtext", name: "siteurl" },
+        { label: "Посетителей в сутки:", kind: "number", name: "visitors" },
+        { label: "E-mail для связи:", kind: "shorttext", name: "email" },
+        {
+          label: "Рубрика каталога:",
+          kind: "combo",
+          name: "division",
+          variants: [
+            { text: "здоровье", value: 1 },
+            { text: "домашний уют", value: 2 },
+            { text: "бытовая техника", value: 3 },
+          ],
+        },
+        {
+          label: "Размещение:",
+          kind: "radio",
+          name: "payment",
+          variants: [
+            { text: "бесплатное", value: 1 },
+            { text: "платное", value: 2 },
+            { text: "VIP", value: 3 },
+          ],
+        },
+        { label: "Разрешить отзывы:", kind: "check", name: "votes" },
+        { label: "Описание сайта:", kind: "memo", name: "description" },
+        { caption: "Опубликовать", kind: "submit" },
+      ];
+      function formBuilder(arrElem) {
+        let res = `<form action="http://fe.it-academy.by/TestForm.php" method="post">`;
+
+        for (let obj of arrElem) {
+          let { caption = 0, label = 0, kind, name = 0, variants = 0 } = obj;
+
+          let type;
+          switch (kind) {
+            case "combo":
+              type = "select";
+              break;
+            case "radio":
+              type = "radio";
+              break;
+            case "check":
+              type = "checkbox";
+              break;
+            case "submit":
+              type = "submit";
+              break;
+            case "memo":
+              type = "textarea";
+              break;
+            case "number":
+              type = "number";
+              break;
+            default:
+              type = "text";
+              break;
+          }
+
+          if (type === "radio") {
+            res = `<label>${label}</label>`;
+            for (let objVar of variants) {
+              let { text, value } = objVar;
+
+              res2 = `<input type="${type}" name="${name}" value="${value}"><span>${text}</span>`;
+              res += res2;
+            }
+            res = res + "<br>";
+          } else if (type === "select") {
+            res = `<label>${label}</label><${type} name="${name}">`;
+            for (let objVar of variants) {
+              let { text, value } = objVar;
+
+              res2 = `<option value="${value}"><span>${text}</span></option>`;
+              res += res2;
+            }
+            res = res + "</select>" + "<br>";
+          } else if (type === "textarea") {
+            res = ` <label>${label}</label> <br> <textarea name="${name}" cols="30" rows="10"></textarea> <br> `;
+          } else if (label) {
+            res = `<label>${label}</label><input type=${type} name="${name}" />   <br> `;
+          } else if (caption) {
+            res = `<button type="submit"> ${caption} </button></form>  <br> `;
+          }
+
+          app.innerHTML += res;
+        }
+      }
+
+      formBuilder(formDef1);
+    </script>
+  </body>
+</html>

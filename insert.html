@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>b4+</title>
+  </head>
+
+  <body>
+    <input type="text" name="h1" placeholder="h1" />
+    <input type="button" name="h1Button" value="отправить заголовок" />
+    <br />
+    <input type="text" name="p" placeholder="p" />
+    <input type="button" name="pButton" value="отправить параграф" />
+    <br />
+    <input type="text" name="li1" placeholder="li" />
+    <input type="text" name="li2" placeholder="li" />
+    <input type="text" name="li3" placeholder="li" />
+    <input type="button" name="liButton" value="отправить список" />
+    <hr />
+    <div id="app"></div>
+
+    <script>
+      const app = document.getElementById("app");
+
+      const h1Button = document.querySelector("[name='h1Button']");
+      h1Button.addEventListener("click", () => {
+        let text = reSymbol(document.querySelector("[name='h1']").value);
+        res = `<h1>${text}</h1>`;
+        app.innerHTML += res;
+      });
+
+      const pButton = document.querySelector("[name='pButton']");
+      pButton.addEventListener("click", () => {
+        let text = reSymbol(document.querySelector("[name='p']").value);
+        res = `<p>${text}</p>`;
+        app.innerHTML += res;
+      });
+
+      const liButton = document.querySelector("[name='liButton']");
+      liButton.addEventListener("click", () => {
+        let text1 = reSymbol(document.querySelector("[name='li1']").value);
+        let text2 = reSymbol(document.querySelector("[name='li2']").value);
+        let text3 = reSymbol(document.querySelector("[name='li3']").value);
+        res = `<ul><li>${text1}</li><li>${text2}</li><li>${text3}</li></ul>`;
+        app.innerHTML += res;
+      });
+
+      function reSymbol(text) {
+        reText = text
+          .split("")
+          .map((el) => {
+            const dict = {
+              "<": "&lt;",
+              ">": "&gt;",
+              "'": "&apos;",
+              '"': "&quot;",
+              "&": "&amp;",
+            };
+            if (el in dict) {
+              return dict[el];
+            }
+            return el;
+          })
+          .join("");
+        return reText;
+      }
+    </script>
+  </body>
+</html>
