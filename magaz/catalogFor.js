@@ -229,7 +229,7 @@ const items = [
   },
 ];
 
-const app = document.getElementById("app");
+// const app = document.getElementById("app");
 
 const add = () => {
   const card_name = document.querySelector("[name='card_name']").value;

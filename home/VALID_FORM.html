@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VALID_FORM</title>
+    <style>
+      #divError {
+        border: 2px solid white;
+      }
+      .error {
+        border-color: red !important;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Для внесения вашего сайта в каталог, заполните форму:</h3>
+    <form
+      action="http://fe.it-academy.by/TestForm.php"
+      method="post"
+      name="siteForm"
+    >
+      <label> Разработчики:</label>
+      <input type="text" name="razrab" /><span
+        id="razrabError"
+        class="error"
+      ></span>
+      <br />
+      <!--  -->
+      <label> Название сайта:</label>
+      <input type="text" name="siteName" /><span
+        id="siteNameError"
+        class="error"
+      ></span>
+      <br />
+      <!--  -->
+      <label> URL сайта:</label>
+      <input type="text" name="siteUrl" /><span
+        id="siteUrlError"
+        class="error"
+      ></span>
+      <br />
+      <!--  -->
+      <label> Дата запуска сайта:</label>
+      <input type="date" name="startDate" />
+      <span id="startDateError" class="error"></span> <br />
+      <!--  -->
+      <label> Посетителей в сутки:</label>
+      <input type="number" name="visitors" />
+      <span id="visitorsError" class="error"></span><br />
+      <!--  -->
+      <label> E-mail для связи:</label>
+      <input type="text" name="email" />
+      <span id="emailError" class="error"></span><br />
+      <!--  -->
+      <label>Рубрика каталога: </label>
+      <select name="division">
+        <option value="0" selected disabled></option>
+        <option value="1">здоровье</option>
+        <option value="2">домашний уют</option>
+        <option value="3">бытовая техника</option>
+      </select>
+      <span id="divisionError" class="error"></span><br />
+      <!--  -->
+      <label>Размещение: </label>
+      <span id="divError">
+        <input type="radio" name="payment" value="1" />
+        <label>бесплатное</label>
+        <input type="radio" name="payment" value="2" />
+        <label>платное</label>
+        <input type="radio" name="payment" value="3" />
+        <label>VIP</label>
+      </span>
+      <span id="paymentError" class="error"></span><br />
+      <!--  -->
+      <label>Разрешить отзывы </label>
+      <input type="checkbox" name="review" /> <br />
+      <!--  -->
+      <label>Описание сайта: </label> <br />
+      <textarea name="description" cols="40" rows="5"></textarea>
+      <span id="descriptionError" class="error"></span><br />
+      <!--  -->
+      <button type="submit">Опубликовать</button>
+
+      <script>
+        const tagForm = document.forms.siteForm;
+        tagForm.addEventListener("submit", validForm);
+
+        function validForm(eo) {
+          try {
+            razrabBlur();
+            siteNameBlur();
+            siteUrlBlur();
+            startDateBlur();
+            visitorsBlur();
+            emailBlur();
+            divisionBlur();
+            paymentBlur();
+            descriptionBlur();
+
+            if (!razrabBlur()) {
+              razrab.focus();
+              eo.preventDefault();
+            } else if (!siteNameBlur()) {
+              siteName.focus();
+              eo.preventDefault();
+            } else if (!siteUrlBlur()) {
+              siteUrl.focus();
+              eo.preventDefault();
+            } else if (!startDateBlur()) {
+              startDate.focus();
+              eo.preventDefault();
+            } else if (!visitorsBlur()) {
+              visitors.focus();
+              eo.preventDefault();
+            } else if (!emailBlur()) {
+              email.focus();
+              eo.preventDefault();
+            } else if (!divisionBlur()) {
+              division.focus();
+              eo.preventDefault();
+            } else if (!paymentBlur()) {
+              division.focus();
+              eo.preventDefault();
+            } else if (!descriptionBlur) {
+              description.focus();
+              eo.preventDefault();
+            }
+          } catch (ex) {
+            console.log(ex);
+            alert("Извините, что-то пошло не так, неожиданный сбой!");
+            eo.preventDefault();
+          }
+        }
+        /////////////////////////////razrab//////////////////////////////
+        const razrab = tagForm.elements.razrab;
+        const razrabError = document.getElementById("razrabError");
+        const razrabBlur = () => {
+          if (razrab.value.length < 3 || razrab.value.length > 30) {
+            razrab.classList.add("error");
+            razrabError.innerHTML =
+              "Заполните пожалуйста поле (в диапазоне 3 - 30 символов)!";
+            return 0;
+          }
+          return 1;
+        };
+        const razrabFocus = () => {
+          if (razrab.classList.contains("error")) {
+            razrab.classList.remove("error");
+            razrabError.innerHTML = "";
+          }
+        };
+        razrab.addEventListener("blur", razrabBlur);
+        razrab.addEventListener("focus", razrabFocus);
+        /////////////////////////////siteName//////////////////////////////
+        const siteName = tagForm.elements.siteName;
+        const siteNameError = document.getElementById("siteNameError");
+        const siteNameBlur = () => {
+          if (siteName.value.length < 3 || siteName.value.length > 20) {
+            siteName.classList.add("error");
+            siteNameError.innerHTML =
+              "Заполните пожалуйста поле (в диапазоне 3 - 20 символов)";
+            return 0;
+          }
+          return 1;
+        };
+        const siteNameFocus = () => {
+          if (siteName.classList.contains("error")) {
+            siteName.classList.remove("error");
+            siteNameError.innerHTML = "";
+          }
+        };
+        siteName.addEventListener("blur", siteNameBlur);
+        siteName.addEventListener("focus", siteNameFocus);
+        /////////////////////////////siteURL//////////////////////////////////////
+        const siteUrl = tagForm.elements.siteUrl;
+        const siteUrlError = document.getElementById("siteUrlError");
+        const siteUrlBlur = () => {
+          if (
+            siteUrl.value.length < 3 ||
+            siteUrl.value.length > 30 ||
+            !siteUrl.value.includes(".")
+          ) {
+            siteUrl.classList.add("error");
+            siteUrlError.innerHTML =
+              "Введите корректное название сайта (например example.com)";
+            return 0;
+          }
+          return 1;
+        };
+        const siteUrlFocus = () => {
+          if (siteUrl.classList.contains("error")) {
+            siteUrl.classList.remove("error");
+            siteUrlError.innerHTML = "";
+          }
+        };
+        siteUrl.addEventListener("blur", siteUrlBlur);
+        siteUrl.addEventListener("focus", siteUrlFocus);
+        /////////////////////////////// startDate///////////////////////////
+        const startDate = tagForm.elements.startDate;
+        const startDateError = document.getElementById("startDateError");
+        const startDateBlur = () => {
+          if (!startDate.value) {
+            startDate.classList.add("error");
+            startDateError.innerHTML =
+              "Пожалуйста, заполните дату запуска сайта!";
+            return 0;
+          }
+          return 1;
+        };
+        const startDateFocus = () => {
+          if (startDate.classList.contains("error")) {
+            startDate.classList.remove("error");
+            startDateError.innerHTML = "";
+          }
+        };
+        startDate.addEventListener("blur", startDateBlur);
+        startDate.addEventListener("focus", startDateFocus);
+        /////////////////////////////// visitors///////////////////////////
+        const visitors = tagForm.elements.visitors;
+        const visitorsError = document.getElementById("visitorsError");
+        const visitorsBlur = () => {
+          if (!visitors.value) {
+            visitors.classList.add("error");
+            visitorsError.innerHTML =
+              "Пожалуйста, введите примерное число посетителей в сутки!";
+            return 0;
+          }
+          return 1;
+        };
+        const visitorsFocus = () => {
+          if (visitors.classList.contains("error")) {
+            visitors.classList.remove("error");
+            visitorsError.innerHTML = "";
+          }
+        };
+        visitors.addEventListener("blur", visitorsBlur);
+        visitors.addEventListener("focus", visitorsFocus);
+        ////////////////////////// e-mail /////////////////////////////////
+        const email = tagForm.elements.email;
+        const emailError = document.getElementById("emailError");
+        const emailBlur = () => {
+          if (!email.value.includes("@")) {
+            email.classList.add("error");
+            emailError.innerHTML = "Пожалуйста, введите правильный email!.";
+            return 0;
+          }
+          return 1;
+        };
+        const emailFocus = () => {
+          if (email.classList.contains("error")) {
+            email.classList.remove("error");
+            emailError.innerHTML = "";
+          }
+        };
+        email.addEventListener("blur", emailBlur);
+        email.addEventListener("focus", emailFocus);
+        ///////////////////////////////////division/////////////////////////////////////////////
+        const division = tagForm.elements.division;
+        const divisionError = document.getElementById("divisionError");
+        const divisionBlur = () => {
+          if (division.value == 0) {
+            division.classList.add("error");
+            divisionError.innerHTML = "Пожалуйста, выберите рубрику каталога!";
+            return 0;
+          }
+          return 1;
+        };
+        const divisionFocus = () => {
+          if (division.classList.contains("error")) {
+            division.classList.remove("error");
+            divisionError.innerHTML = "";
+          }
+        };
+        division.addEventListener("blur", divisionBlur);
+        division.addEventListener("focus", divisionFocus);
+        ///////////////////////////////////payment/////////////////////////////////////////////
+        const payment = tagForm.elements.payment;
+        const paymentError = document.getElementById("paymentError");
+        const divError = document.getElementById("divError");
+        const paymentBlur = () => {
+          if (
+            !payment[0].checked &&
+            !payment[1].checked &&
+            !payment[2].checked
+          ) {
+            payment.forEach((element) => {
+              element.classList.add("error");
+            });
+            divError.classList.add("error");
+            paymentError.innerHTML = "Пожалуйста, выберите способ размещения!";
+            return 0;
+          }
+          return 1;
+        };
+        const paymentFocus = () => {
+          divError.classList.remove("error");
+          payment.forEach((element) => {
+            if (element.classList.contains("error")) {
+              element.classList.remove("error");
+              paymentError.innerHTML = "";
+            }
+          });
+        };
+
+        payment[0].addEventListener("blur", paymentBlur);
+        payment[1].addEventListener("blur", paymentBlur);
+        payment[2].addEventListener("blur", paymentBlur);
+        payment[0].addEventListener("focus", paymentFocus);
+        payment[1].addEventListener("focus", paymentFocus);
+        payment[2].addEventListener("focus", paymentFocus);
+        ///////////////////////////////////description/////////////////////////////////////////////
+        const description = tagForm.elements.description;
+        const descriptionError = document.getElementById("descriptionError");
+        const descriptionBlur = () => {
+          if (description.value < 3) {
+            description.classList.add("error");
+            descriptionError.innerHTML =
+              "Пожалуйста, заполните описание сайта!";
+            return 0;
+          }
+          return 1;
+        };
+        const descriptionFocus = () => {
+          if (description.classList.contains("error")) {
+            description.classList.remove("error");
+            descriptionError.innerHTML = "";
+          }
+        };
+        description.addEventListener("blur", descriptionBlur);
+        description.addEventListener("focus", descriptionFocus);
+      </script>
+    </form>
+  </body>
+</html>

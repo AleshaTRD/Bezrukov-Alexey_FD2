@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #area {
+        background-color: aquamarine;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+        margin-top: 100px;
+        position: relative;
+        overflow: hidden;
+      }
+      #snake {
+        background-color: blue;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        border-radius: 50%;
+        left: 225px;
+        top: 225px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="area">
+      <div id="snake"></div>
+    </div>
+
+    <script>
+      const snake = document.getElementById("snake");
+      const area = document.getElementById("area");
+      let x = 225;
+      let y = 225;
+      let step;
+
+      const start = (func) => {
+        // startTime = new Date();
+        clearInterval(step);
+        step = setInterval(func, 100);
+      };
+      const moveLeft = () => {
+        snake.style.left = (x -= 10) + "px";
+
+        if (x <= -25) {
+          x = 475;
+        }
+      };
+      const moveRight = () => {
+        snake.style.left = (x += 10) + "px";
+        if (x >= 475) {
+          x = -25;
+        }
+      };
+      const moveUp = () => {
+        snake.style.top = (y -= 10) + "px";
+        if (y <= -25) {
+          y = 475;
+        }
+      };
+      const moveDown = () => {
+        snake.style.top = (y += 10) + "px";
+        if (y >= 475) {
+          y = -25;
+        }
+      };
+      window.addEventListener("keydown", (e) => {
+        switch (e.keyCode) {
+          case 37:
+            start(moveLeft);
+            break;
+          case 38:
+            start(moveUp);
+            break;
+          case 39:
+            start(moveRight);
+            break;
+          case 40:
+            start(moveDown);
+            break;
+        }
+      });
+      // snake.style.backgroundColor = "blue";
+      // if (x > 475) {
+      //   snake.style.backgroundColor = "red";
+      // }
+    </script>
+  </body>
+</html>
