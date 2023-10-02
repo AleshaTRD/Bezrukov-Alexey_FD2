@@ -303,7 +303,6 @@
             }
           });
         };
-
         payment[0].addEventListener("blur", paymentBlur);
         payment[1].addEventListener("blur", paymentBlur);
         payment[2].addEventListener("blur", paymentBlur);
@@ -314,10 +313,10 @@
         const description = tagForm.elements.description;
         const descriptionError = document.getElementById("descriptionError");
         const descriptionBlur = () => {
-          if (description.value < 3) {
+          if (description.value < 10) {
             description.classList.add("error");
             descriptionError.innerHTML =
-              "Пожалуйста, заполните описание сайта!";
+              "Пожалуйста, заполните описание сайта(от 10 символов)!";
             return 0;
           }
           return 1;

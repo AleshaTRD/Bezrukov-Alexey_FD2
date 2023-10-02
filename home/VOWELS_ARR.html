@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VOWELS_ARR</title>
+  </head>
+  <body>
+    <script>
+      const vowelsForEach = (str) => {
+        let counter = 0;
+        const glas = ["а", "у", "е", "ё", "ы", "о", "э", "я", "и"];
+        const strArr = str
+          .toLowerCase()
+          .split("")
+          .forEach((el) => {
+            if (glas.includes(el)) {
+              counter += 1;
+            }
+          });
+        console.log(`метод ForEach: ${counter}`);
+      };
+
+      const vowelsReduce = (str) => {
+        const glas = ["а", "у", "е", "ё", "ы", "о", "э", "я", "и"];
+        const res = str
+          .toLowerCase()
+          .split("")
+          .reduce((sum, el) => {
+            if (glas.includes(el)) {
+              return (sum += 1);
+            } else {
+              return sum;
+            }
+          }, 0);
+        console.log(`метод Reduce : ${res}`);
+      };
+
+      const vowelsFilter = (str) => {
+        const glas = ["а", "у", "е", "ё", "ы", "о", "э", "я", "и"];
+        const strArr = str
+          .toLowerCase()
+          .split("")
+          .filter((el) => {
+            return glas.includes(el);
+          });
+        console.log(`метод Filter: ${strArr.length}`);
+      };
+      string = prompt("введите строку для подсчета гласных");
+      vowelsForEach(string);
+      vowelsReduce(string);
+      vowelsFilter(string);
+    </script>
+  </body>
+</html>
