@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLOCK_DOM</title>
+  </head>
+  <body>
+    <div id="input">
+      <span>Введите диаметр часов (от 200 до 800):</span>
+      <input type="text" name="diameter" /><br />
+      <input type="button" value="Построить часы" />
+      <span id="TTT"></span>
+    </div>
+
+    <script>
+      const area = document.createElement("div");
+      const digWatch = document.createElement("div");
+      const hourArrow = document.createElement("div");
+      const minArrow = document.createElement("div");
+      const secArrow = document.createElement("div");
+      const center = document.createElement("div");
+      const btn = document.querySelector("[type='button']");
+
+      const clockCreator = () => {
+        const diameter = document.querySelector("[name='diameter']").value;
+        const div = document.getElementById("input");
+        div.style.display = "none";
+        document.body.append(area);
+        area.appendChild(digWatch);
+        area.style.width = diameter + "px";
+        area.style.height = diameter + "px";
+        area.style.backgroundColor = "#fcca66";
+        area.style.position = "relative";
+        area.style.borderRadius = 50 + "%";
+
+        const areaCenterX = area.offsetWidth / 2;
+        const areaCenterY = area.offsetHeight / 2;
+        const radius = Math.round(diameter / 2.5);
+
+        digWatch.style.width = diameter / 2 + "px";
+        digWatch.style.height = diameter / 7 + "px";
+        digWatch.style.position = "absolute";
+        digWatch.style.display = "flex";
+        digWatch.style.alignItems = "center";
+        digWatch.style.justifyContent = "center";
+        digWatch.style.fontSize = Math.round(diameter / 10) + "px";
+        digWatch.style.zIndex = 10;
+        digWatch.style.color = "#48b382";
+        digWatch.style.fontFamily = "Arial, Helvetica, sans-serif";
+        digWatch.style.left =
+          Math.round(areaCenterX - digWatch.offsetWidth / 2) + "px";
+        digWatch.style.top =
+          Math.round(areaCenterY - digWatch.offsetHeight * 1.5) + "px";
+
+        let angle = 30;
+        let elem;
+        for (let i = 1; i <= 12; i++) {
+          const anglePos = (angle / 180) * Math.PI;
+          const elemCenterX = areaCenterX + radius * Math.sin(anglePos);
+          const elemCenterY = areaCenterY - radius * Math.cos(anglePos);
+          elem = document.createElement("div");
+          area.appendChild(elem);
+          node = document.createTextNode(i);
+          elem.appendChild(node);
+          elem.style.position = "absolute";
+          elem.style.width = Math.round(diameter / 8) + "px";
+          elem.style.height = Math.round(diameter / 8) + "px";
+          elem.style.backgroundColor = "#48b382";
+          elem.style.borderRadius = 50 + "%";
+          elem.style.display = "flex";
+          elem.style.alignItems = "center";
+          elem.style.justifyContent = "center";
+          elem.style.fontSize = Math.round(diameter / 15) + "px";
+          elem.style.left =
+            Math.round(elemCenterX - elem.offsetWidth / 2) + "px";
+          elem.style.top =
+            Math.round(elemCenterY - elem.offsetHeight / 2) + "px";
+          angle += 30;
+        }
+        arrowCreator();
+      };
+      const arrowCreator = () => {
+        const diameter = document.querySelector("[name='diameter']").value;
+
+        area.appendChild(center);
+        center.style.width = Math.round(diameter / 30) + "px";
+        center.style.height = Math.round(diameter / 30) + "px";
+        center.style.backgroundColor = "black";
+        center.style.position = "absolute";
+        center.style.borderRadius = 50 + "%";
+        center.style.left =
+          Math.round(area.offsetWidth / 2 - center.offsetWidth / 2) + "px";
+        center.style.top =
+          Math.round(area.offsetHeight / 2 - center.offsetHeight / 2) + "px";
+
+        const arrowStyle = (arrow, width, height) => {
+          area.appendChild(arrow);
+          arrow.style.width = Math.round(diameter / width) + "px";
+          arrow.style.height = Math.round(diameter / height) + "px";
+          arrow.style.backgroundColor = "black";
+          arrow.style.position = "absolute";
+          arrow.style.borderRadius = 15 + "px";
+          arrow.style.left =
+            Math.round(area.offsetWidth / 2 - arrow.offsetWidth / 2) + "px";
+          arrow.style.top =
+            Math.round(area.offsetHeight / 2 - arrow.offsetHeight) + "px";
+        };
+        arrowStyle(hourArrow, 36, 3.6);
+        arrowStyle(minArrow, 66, 3);
+        arrowStyle(secArrow, 133, 2.4);
+      };
+
+      const arrowMove = () => {
+        const day = new Date();
+        const hour = day.getHours() * 30;
+        const min = day.getMinutes() * 6;
+        const sec = day.getSeconds() * 6;
+        hourArrow.style.transform = `rotate(${hour + min / 12}deg) `;
+        hourArrow.style.transformOrigin = "50% 100%";
+        minArrow.style.transform = `rotate(${min}deg) `;
+        minArrow.style.transformOrigin = "50% 100%";
+        secArrow.style.transform = `rotate(${sec}deg) `;
+        secArrow.style.transformOrigin = "50% 100%";
+      };
+
+      const digitalWatch = () => {
+        const day = new Date();
+        const watch = formatTime(day);
+        digWatch.innerHTML = watch;
+        console.log("Текущее время - " + watch);
+      };
+
+      const formatTime = (day) => {
+        const hour = day.getHours();
+        const min = day.getMinutes();
+        const sec = day.getSeconds();
+        return strTime(hour) + ":" + strTime(min) + ":" + strTime(sec);
+      };
+
+      const strTime = (time) => {
+        let strVal = time.toString();
+        while (strVal.length < 2) strVal = "0" + strVal;
+        return strVal;
+      };
+
+      setInterval(() => {
+        arrowMove();
+        digitalWatch();
+      }, 1000);
+
+      btn.addEventListener("click", clockCreator);
+    </script>
+  </body>
+</html>
