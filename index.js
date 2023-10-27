@@ -136,7 +136,7 @@ divLeftRight.appendChild(btnLeft);
 
 const arrowsImg = document.createElement("img");
 arrowsImg.setAttribute("id", "arrowsImg");
-arrowsImg.setAttribute("src", "/img/cross.svg");
+arrowsImg.setAttribute("src", "cross.svg");
 divLeftRight.appendChild(arrowsImg);
 
 const btnRight = document.createElement("button");
